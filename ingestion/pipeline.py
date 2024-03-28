@@ -1,5 +1,5 @@
+from loguru import logger
 from pathlib import Path
-import pandas as pd
 import duckdb
 from ingestion.duck import create_table_from_csv
 
@@ -12,10 +12,13 @@ def get_csv_names_and_paths():
 
 
 def main():
-    conn = duckdb.connect(database="my_jaffle.duckdb", read_only=False)
-    names, paths = get_csv_names_and_paths()
-
-    [create_table_from_csv(conn, name, path) for name, path in zip(names, paths)]
+    with duckdb.connect(database="my_jaffle.duckdb", read_only=False) as duckdb_con:
+        logger.info(f"Connecting to {duckdb_con}")
+        names, paths = get_csv_names_and_paths()
+        [
+            create_table_from_csv(duckdb_con, name, path)
+            for name, path in zip(names, paths)
+        ]
 
 
 if __name__ == "__main__":
