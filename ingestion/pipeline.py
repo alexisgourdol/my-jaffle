@@ -12,13 +12,14 @@ def get_csv_names_and_paths():
 
 
 def main():
-    with duckdb.connect(database="my_jaffle.duckdb", read_only=False) as duckdb_con:
+    with duckdb.connect(database="my_jaffle.db", read_only=False) as duckdb_con:
         logger.info(f"Connecting to {duckdb_con}")
         names, paths = get_csv_names_and_paths()
         [
             create_table_from_csv(duckdb_con, name, path)
             for name, path in zip(names, paths)
         ]
+        logger.info(f"Closing connection to {duckdb_con}")
 
 
 if __name__ == "__main__":

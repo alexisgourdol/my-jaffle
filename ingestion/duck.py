@@ -8,7 +8,7 @@ def create_table_from_csv(duckdb_con, table_name: str, csv_file: str):
         DROP TABLE IF EXISTS {table_name};
         CREATE TABLE {table_name} AS
             SELECT *
-            FROM read_csv('{csv_file}', AUTO_DETECT=TRUE);
+            FROM read_csv('{csv_file}', auto_detect = true, header = true);
         """
 
     logger.info(sql)
