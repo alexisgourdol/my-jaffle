@@ -2,6 +2,7 @@
 ingestion/tmp.sql
 my_jaffle.db
 tmp_ERD_xml
+logs/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
