@@ -1,3 +1,8 @@
+# temporary files for exploration
+ingestion/tmp.sql
+my_jaffle.db
+tmp_ERD_xml
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
