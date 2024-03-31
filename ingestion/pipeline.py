@@ -5,14 +5,17 @@ from ingestion.duck import create_table_from_csv
 
 
 def get_csv_names_and_paths():
-    csv_file_paths = list(Path.cwd().joinpath("ingestion", "jaffle-data").iterdir())
+    csv_file_paths = list(Path.cwd().joinpath("ingestion", "data").iterdir())
     csv_file_names = [p.name.replace(".csv", "") for p in csv_file_paths]
     csv_file_paths = [str(p) for p in csv_file_paths]
     return csv_file_names, csv_file_paths
 
 
 def main():
-    with duckdb.connect(database="my_jaffle_raw.db", read_only=False) as duckdb_con:
+    with duckdb.connect(
+        database="/workspaces/my-jaffle/transform/jaffle_metrics/data/my_jaffle.db",
+        read_only=False,
+    ) as duckdb_con:
         logger.info(f"Connecting to {duckdb_con}")
         names, paths = get_csv_names_and_paths()
         [
