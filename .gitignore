@@ -1,6 +1,7 @@
 # temporary files for exploration
 ingestion/tmp.sql
 my_jaffle.db
+my_jaffle_raw.db
 tmp_ERD_xml
 logs/
 
