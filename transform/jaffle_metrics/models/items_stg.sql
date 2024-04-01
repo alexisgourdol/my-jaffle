@@ -2,7 +2,6 @@
 
 with source as (
     select * from {{ source('my_jaffle', 'raw_items') }}
-
 ),
 
 renamed as (
