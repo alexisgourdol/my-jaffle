@@ -12,3 +12,7 @@ jaffle_ingest:
 
 dbt_profiles_update:
 	cp profiles.yml /root/.dbt/profiles.yml
+
+jaffle_run:
+	cd transform/jaffle_metrics && \
+	poetry run dbt run
