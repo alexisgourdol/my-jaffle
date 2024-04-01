@@ -6,11 +6,11 @@ with source as (
 
 renamed as (
     select
-      id as supplies_id,
-      name as supplies_name,
-      cost,
-      perishable,
-      sku
+        id as supplies_id,
+        name as supplies_name,
+        cost,
+        perishable,
+        sku
     from source
 )
 

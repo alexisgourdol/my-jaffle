@@ -6,13 +6,13 @@ with source as (
 
 renamed as (
     select
-      id as order_id,
-      customer as customer,
-      ordered_at,
-      store_id,
-      subtotal,
-      tax_paid,
-      order_total
+        id as order_id,
+        customer,
+        ordered_at,
+        store_id,
+        subtotal,
+        tax_paid,
+        order_total
     from source
 )
 

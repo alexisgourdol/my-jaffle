@@ -6,11 +6,11 @@ with source as (
 
 renamed as (
     select
-      sku as sku_id,
-      name as product_name,
-      type,
-      price,
-      description
+        sku as sku_id,
+        name as product_name,
+        type,
+        price,
+        description
     from source
 )
 

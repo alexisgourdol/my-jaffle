@@ -5,7 +5,13 @@ install:
 	poetry install
 
 format:
-	ruff format .
+	ruff format . &&\
+	cd transform/jaffle_metrics && \
+	poetry run dbt compile && \
+	poetry run sqlfluff lint -t dbt . && \
+	poetry run sqlfluff fix -t dbt . && \
+	poetry run dbt clean && \
+	cd -
 
 jaffle_ingest:
 	poetry run python -m ingestion.pipeline
