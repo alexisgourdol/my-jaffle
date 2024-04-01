@@ -1,13 +1,15 @@
 {{ config(materialized='view') }}
 
-with customer_staging as (
+with source as (
+    select * from {{ source('my_jaffle', 'raw_customers') }}
+),
 
-select
-  id as customer_id,
-  name as customer_name
-from {{ source('my_jaffle', 'raw_customers') }}
-
+renamed as (
+    select
+      id as customer_id,
+      name as customer_name
+    from source
 )
 
 select *
-from customer_staging
+from renamed

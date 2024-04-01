@@ -1,14 +1,17 @@
 {{ config(materialized='view') }}
 
-with items_staging as (
+with source as (
+    select * from {{ source('my_jaffle', 'raw_items') }}
 
-select
-  id as item_id,
-  order_id,
-  sku
-from {{ source('my_jaffle', 'raw_items') }}
+),
 
+renamed as (
+    select
+        id as item_id,
+        order_id,
+        sku
+    from source
 )
 
 select *
-from items_staging
+from renamed
