@@ -11,7 +11,11 @@ jaffle_ingest:
 	poetry run python -m ingestion.pipeline
 
 dbt_profiles_update:
-	cp profiles.yml /root/.dbt/profiles.yml
+	mkdir ~/.dbt/ &&\
+	cp transform/jaffle_metrics/profiles.yml ~/.dbt/profiles.yml &&\
+	rm transform/jaffle_metrics/profiles.yml &&\
+	cp transform/jaffle_metrics/.users.yml ~/.dbt/.users.yml &&\
+	rm transform/jaffle_metrics/.users.yml
 
 jaffle_run:
 	cd transform/jaffle_metrics && \

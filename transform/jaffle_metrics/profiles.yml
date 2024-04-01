@@ -1,0 +1,6 @@
+jaffle_metrics:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: 'data/my_jaffle.db'
