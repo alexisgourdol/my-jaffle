@@ -1,6 +1,6 @@
 {{ config(materialized='view') }}
 
-with customer_stg as (
+with customer_staging as (
 
 select
   id as customer_id,
@@ -10,4 +10,4 @@ from {{ source('my_jaffle', 'raw_customers') }}
 )
 
 select *
-from customer_stg
+from customer_staging
