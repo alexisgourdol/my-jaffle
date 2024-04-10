@@ -9,7 +9,7 @@ renamed as (
         id as store_id,
         name as city,
         opened_at,
-        tax_rate,
+        tax_rate
     from source
 )
 

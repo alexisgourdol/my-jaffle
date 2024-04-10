@@ -9,7 +9,7 @@ renamed as (
         sku as sku_id,
         name as product_name,
         type,
-        price,
+        price as sku_price,
         description
     from source
 )
