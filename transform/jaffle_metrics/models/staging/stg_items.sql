@@ -8,7 +8,7 @@ renamed as (
     select
         id as item_id,
         order_id,
-        sku
+        sku as sku_id
     from source
 )
 

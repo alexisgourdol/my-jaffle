@@ -13,7 +13,7 @@ format:
 	poetry run dbt clean && \
 	cd -
 
-jaffle_ingest:
+ingest:
 	poetry run python -m ingestion.pipeline
 
 dbt_profiles_update:
@@ -23,10 +23,10 @@ dbt_profiles_update:
 	cp transform/jaffle_metrics/.users.yml ~/.dbt/.users.yml &&\
 	rm transform/jaffle_metrics/.users.yml
 
-jaffle_run:
+run:
 	cd transform/jaffle_metrics && \
 	poetry run dbt run
 
-jaffle_test:
+test:
 	cd transform/jaffle_metrics && \
 	poetry run dbt test

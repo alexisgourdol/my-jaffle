@@ -1,6 +1,6 @@
 # temporary files
 my_jaffle.db
-tmp_ERD_xml
+*tmp_ERD_xml
 logs/
 .user.yml
 
