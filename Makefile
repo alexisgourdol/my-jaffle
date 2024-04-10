@@ -6,12 +6,9 @@ install:
 
 format:
 	ruff format . &&\
-	cd transform/jaffle_metrics && \
-	poetry run dbt compile && \
-	poetry run sqlfluff lint -t dbt . && \
-	poetry run sqlfluff fix -t dbt . && \
-	poetry run dbt clean && \
-	cd -
+	cd transform/jaffle_metrics && pwd && \
+	sqlfluff lint -t dbt . && \
+	dbt clean
 
 ingest:
 	poetry run python -m ingestion.pipeline
