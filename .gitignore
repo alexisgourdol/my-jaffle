@@ -3,6 +3,7 @@ my_jaffle.db
 *tmp_ERD_xml
 logs/
 .user.yml
+tmp.sql
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

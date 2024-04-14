@@ -10,7 +10,7 @@ renamed as (
         name as supplies_name,
         cost,
         perishable,
-        sku as sku_id
+        sku as product_id
     from source
 )
 

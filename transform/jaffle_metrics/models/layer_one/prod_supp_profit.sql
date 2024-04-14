@@ -6,8 +6,8 @@ with products as (
 
 supplies as (
     select
-        sku_id,
-        sum(cost) as sku_cost
+        product_id,
+        sum(cost) as product_cost
     from {{ ref('stg_supplies') }}
     group by all
 
@@ -15,16 +15,16 @@ supplies as (
 
 final as (
     select
-        s.sku_id,
+        s.product_id,
         p.product_name,
         p.type,
-        p.sku_price,
-        s.sku_cost,
-        (p.sku_price - s.sku_cost) as sku_gross_margin
+        p.product_price,
+        s.product_cost,
+        (p.product_price - s.product_cost) as sku_gross_margin
 
     from products as p
     inner join supplies as s
-        on p.sku_id = s.sku_id
+        on p.product_id = s.product_id
     order by all
 )
 
