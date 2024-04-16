@@ -34,3 +34,6 @@ models:
   jaffle_metrics:
     staging:
       +schema: staging
+    intermediate:
+      +schema: intermediate
+

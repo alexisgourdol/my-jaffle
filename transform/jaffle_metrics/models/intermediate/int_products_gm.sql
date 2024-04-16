@@ -20,7 +20,7 @@ final as (
         p.type,
         p.product_price,
         s.product_cost,
-        (p.product_price - s.product_cost) as sku_gross_margin
+        (p.product_price - s.product_cost) as product_gross_margin
 
     from products as p
     inner join supplies as s
