@@ -1,16 +1,22 @@
-{{ config(materialized='view') }}
+with
 
-with source as (
+source as (
+
     select * from {{ source('my_jaffle', 'raw_items') }}
+
 ),
 
 renamed as (
+
     select
-        id as item_id,
+
+        ----------  ids
+        id as order_item_id,
         order_id,
         sku as product_id
+
     from source
+
 )
 
-select *
-from renamed
+select * from renamed

@@ -22,6 +22,7 @@ dbt_profiles_update:
 
 run:
 	cd transform/jaffle_metrics && \
+	poetry run dbt deps && \
 	poetry run dbt run
 
 test:
